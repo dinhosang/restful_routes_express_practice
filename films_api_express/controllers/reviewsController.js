@@ -13,7 +13,6 @@ reviewRouter.post('/', function(req, res) {
   const review  = new Review(req.body.review)
   films[filmId].addReview(review)
   res.json(films[filmId])
-  console.log(films);
 })
 
 

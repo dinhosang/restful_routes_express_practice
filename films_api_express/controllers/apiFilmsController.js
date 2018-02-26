@@ -18,21 +18,23 @@ apiFilmRouter.get('/:id', function(req, res) {
 
 // CREATE
 apiFilmRouter.post('/', function(req, res) {
-  films.push(req.body.film)
+  const film = new Film(req.body.film)
+  films.push(film)
+  // res.json(films)
   res.status(200).send()
 })
 
 // UPDATE
 apiFilmRouter.put('/:id', function(req, res) {
   films[req.params.id] = req.body.film
-  // res.json("Successfully updated film")
+  // res.json(films)
   res.status(200).send()
 })
 
 // DELETE
 apiFilmRouter.delete('/:id', function(req, res) {
   films.splice(req.params.id, 1)
-  // res.json("Succesfully deleted film")
+  // res.json(films)
   res.status(200).send()
 })
 
