@@ -19,7 +19,7 @@ apiFilmRouter.get('/:id', function(req, res) {
 // CREATE
 apiFilmRouter.post('/', function(req, res) {
   films.push(req.body.film)
-  res.json("Successfully posted a new film")
+  res.send("Successfully posted a new film")
 })
 
 // UPDATE
