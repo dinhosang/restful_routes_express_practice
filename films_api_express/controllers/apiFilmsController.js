@@ -21,7 +21,7 @@ apiFilmRouter.post('/', function(req, res) {
   const film = new Film(req.body.film)
   films.push(film)
   // res.json(films)
-  res.status(200).send()
+  res.status(201).send()
 })
 
 // UPDATE
