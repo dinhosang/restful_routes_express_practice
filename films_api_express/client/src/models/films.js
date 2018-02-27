@@ -1,34 +1,42 @@
 const Film = require('./film');
 const Review = require('./review');
 
+let instance
+
 const Films = function(){
 
-  const review1 = new Review({
-    comment: "It's not even a thing. What just happened. I want my life back.",
-    rating: 1,
-    author: "Val"
-  });
+  if( instance === undefined ){
 
-  const review2 = new Review({
-    comment: "Pew pew pew lightsabers space cowboys whoot what's not to love",
-    rating: 100,
-    author: "Val"
-  });
+    const review1 = new Review({
+      comment: "It's not even a thing. What just happened. I want my life back.",
+      rating: 1,
+      author: "Val"
+    });
 
-  const film1 = new Film({
-    title: "Now You See Me",
-    actors: ["Woody Harrelson", "Jesse Eisenberg"]
-  });
+    const review2 = new Review({
+      comment: "Pew pew pew lightsabers space cowboys whoot what's not to love",
+      rating: 100,
+      author: "Val"
+    });
 
-  const film2 = new Film({
-    title: "Star Wars Episode IV: A New Hope",
-    actors: ["Harrison Ford", "Alec Guiness"]
-  });
+    const film1 = new Film({
+      title: "Now You See Me",
+      actors: ["Woody Harrelson", "Jesse Eisenberg"]
+    });
 
-  film1.addReview(review1);
-  film2.addReview(review2);
+    const film2 = new Film({
+      title: "Star Wars Episode IV: A New Hope",
+      actors: ["Harrison Ford", "Alec Guiness"]
+    });
 
-  return [film1, film2];
+    film1.addReview(review1);
+    film2.addReview(review2);
+
+    instance = [film1, film2];
+
+  }
+
+  return instance
 }
 
 module.exports = Films;
